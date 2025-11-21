@@ -35,8 +35,7 @@ const receptes = ref([
             <RouterLink :to="`/receptes/${recepta.id}`">Veure detall</RouterLink>
         </section>
     </div>
-    <RouterView />
-</template>
+    </template>
 
 <style scoped>
 .container {

@@ -12,11 +12,11 @@ const router = createRouter({
       path: "/receptes",
       name: "receptes",
       component: () => import('@/views/Recipes.vue'),
-      children: [{
-        path: ":id",
-        name: "recipeDetail",
-        component: () => import('@/views/RecipeDetail.vue')
-      }]
+    },
+    {
+      path: "/receptes/:id",
+      name: "recipeDetail",
+      component: () => import('@/views/RecipeDetail.vue')
     }
   ],
 })
