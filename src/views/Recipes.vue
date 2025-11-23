@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink } from 'vue-router';
 
 const receptes = ref([
     {
@@ -25,36 +25,14 @@ const receptes = ref([
 </script>
 
 <template>
-    <h1>Les nostres receptes</h1>
+  <h1 class="recipes-title">Les nostres receptes</h1>
 
-    <div class="container">
-        <section v-for="recepta in receptes" :key="recepta.id">
-            <img :src="recepta.foto" :alt="recepta.nom" />
-            <h3>{{ recepta.nom }}</h3>
-            <p>{{ recepta.descripcio }}</p>
-            <RouterLink :to="`/receptes/${recepta.id}`">Veure detall</RouterLink>
-        </section>
-    </div>
-    </template>
-
-<style scoped>
-.container {
-    display: flex;
-    gap: 1rem;
-}
-
-section {
-    width: 250px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-</style>
+  <div class="recipes-grid">
+    <section v-for="recepta in receptes" :key="recepta.id" class="recipe-card">
+      <img :src="recepta.foto" :alt="recepta.nom" class="recipe-img" />
+      <h3 class="recipe-name">{{ recepta.nom }}</h3>
+      <p class="recipe-desc">{{ recepta.descripcio }}</p>
+      <RouterLink :to="`/receptes/${recepta.id}`" class="recipe-btn">Veure detall</RouterLink>
+    </section>
+  </div>
+</template>
